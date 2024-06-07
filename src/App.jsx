@@ -1,46 +1,65 @@
 import { useState } from "react";
+import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
+import React from "react";
+import { Button } from "primereact/button";
 
-function Form() {
+export default function BasicDemo() {
   return (
-    <div>
-        <div className="flex justify-center items-center h-screen">
-          <div className="flex items-center justify-center flex-col bg-orange-200 dark:bg-slate-900 rounded-md shadow-lg shadow-slate-500 dark:shadow-gray-800">
-            <h1 className="text-center font-bold text-4xl font-sans mt-8 mb-8 mx-24">
-              ATTENDANCE
-            </h1>
-
-            <div className="flex flex-col form-label font-semibold">
-              <label htmlFor="" className="mb-2 text-xl">
-                Training Name
-              </label>
-              <input
-                type="text"
-                className="border-2 rounded-md h-10"
-                placeholder=" Insert Training Name"
-              />
-            </div>
-
-            <div className="flex flex-col form-label font-semibold">
-              <label htmlFor="" className="mt-2 mb-2 text-xl">
-                Full Name
-              </label>
-              <input
-                type="text"
-                className="border-2 rounded-md h-10"
-                placeholder=" Insert Full Name"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="form-label font-semiboldbg-cyan-500 shadow-lg bg-blue-600 shadow-cyan-400/50 text-white rounded-md w-28 h-10 mt-8 mb-10"
-            >
-              Submit
-            </button>
-          </div>
-        </div>
+    <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+      <div className="text-center mb-5">
+        <img
+          src="/demo/images/blocks/logos/hyper.svg"
+          alt="hyper"
+          height={50}
+          className="mb-3"
+        />
+        <div className="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+        <span className="text-600 font-medium line-height-3">
+          Don't have an account?
+        </span>
+        <a className="font-medium no-underline ml-2 text-blue-500 cursor-pointer">
+          Create today!
+        </a>
       </div>
+
+      <div>
+        <label htmlFor="email" className="block text-900 font-medium mb-2">
+          Email
+        </label>
+        <InputText
+          id="email"
+          type="text"
+          placeholder="Email address"
+          className="w-full mb-3"
+        />
+
+        <label htmlFor="password" className="block text-900 font-medium mb-2">
+          Password
+        </label>
+        <InputText
+          type="password"
+          placeholder="Password"
+          className="w-full mb-3"
+        />
+
+        <div className="flex align-items-center justify-content-between mb-6">
+          <div className="flex align-items-center">
+            <Checkbox
+              id="rememberme"
+              className="mr-2"
+              checked={checked1}
+              onChange={(e) => setChecked1(e.checked)}
+            />
+            <label htmlFor="rememberme">Remember me</label>
+          </div>
+          <a className="font-medium no-underline ml-2 text-blue-500 text-right cursor-pointer">
+            Forgot your password?
+          </a>
+        </div>
+
+        <Button label="Sign In" icon="pi pi-user" className="w-full" />
+      </div>
+    </div>
   );
 }
-
-export default Form;
+        
